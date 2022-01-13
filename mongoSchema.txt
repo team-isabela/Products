@@ -1,0 +1,199 @@
+{
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "id": 40344,
+            "campus": "hr-rfp",
+            "name": "Camo Onesie",
+            "slogan": "Blend in to your crowd",
+            "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
+            "category": "Jackets",
+            "default_price": "140.00",
+            "created_at": "2021-08-13T14:38:44.509Z",
+            "updated_at": "2021-08-13T14:38:44.509Z",
+            "features": [
+                {
+                    "feature": "Fabric",
+                    "value": "Canvas"
+                },
+                {
+                    "feature": "Buttons",
+                    "value": "Brass"
+                }
+            ]
+        }
+    ],
+    "required": [
+        "id",
+        "campus",
+        "name",
+        "slogan",
+        "description",
+        "category",
+        "default_price",
+        "created_at",
+        "updated_at",
+        "features"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "integer",
+            "title": "The id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                40344
+            ]
+        },
+        "campus": {
+            "$id": "#/properties/campus",
+            "type": "string",
+            "title": "The campus schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "hr-rfp"
+            ]
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The name schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Camo Onesie"
+            ]
+        },
+        "slogan": {
+            "$id": "#/properties/slogan",
+            "type": "string",
+            "title": "The slogan schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Blend in to your crowd"
+            ]
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings."
+            ]
+        },
+        "category": {
+            "$id": "#/properties/category",
+            "type": "string",
+            "title": "The category schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Jackets"
+            ]
+        },
+        "default_price": {
+            "$id": "#/properties/default_price",
+            "type": "string",
+            "title": "The default_price schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "140.00"
+            ]
+        },
+        "created_at": {
+            "$id": "#/properties/created_at",
+            "type": "string",
+            "title": "The created_at schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "2021-08-13T14:38:44.509Z"
+            ]
+        },
+        "updated_at": {
+            "$id": "#/properties/updated_at",
+            "type": "string",
+            "title": "The updated_at schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "2021-08-13T14:38:44.509Z"
+            ]
+        },
+        "features": {
+            "$id": "#/properties/features",
+            "type": "array",
+            "title": "The features schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "feature": "Fabric",
+                        "value": "Canvas"
+                    },
+                    {
+                        "feature": "Buttons",
+                        "value": "Brass"
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/features/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/features/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "feature": "Fabric",
+                                "value": "Canvas"
+                            }
+                        ],
+                        "required": [
+                            "feature",
+                            "value"
+                        ],
+                        "properties": {
+                            "feature": {
+                                "$id": "#/properties/features/items/anyOf/0/properties/feature",
+                                "type": "string",
+                                "title": "The feature schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Fabric"
+                                ]
+                            },
+                            "value": {
+                                "$id": "#/properties/features/items/anyOf/0/properties/value",
+                                "type": "string",
+                                "title": "The value schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Canvas"
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}
