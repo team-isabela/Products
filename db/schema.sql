@@ -12,11 +12,6 @@ CREATE TABLE product (
   default_price INT NOT NULL
 );
 
-COPY product(product_id, name, slogan, description, category, default_price)
-FROM '/Users/salar/Documents/SDC_Files/product.csv'
-DELIMITER ','
-CSV HEADER;
-
 CREATE TABLE related (
   id INT NOT NULL PRIMARY KEY
   current_product_id INT NOT NULL,
@@ -25,11 +20,6 @@ CREATE TABLE related (
   FOREIGN KEY (related_product_id) REFERENCES product (id)
 );
 
-COPY related(id, current_product_id, related_product_id)
-FROM '/Users/salar/Documents/SDC_Files/related.csv'
-DELIMITER ','
-CSV HEADER;
-
 CREATE TABLE features (
   id INT NOT NULL PRIMARY KEY,
   product_id INT NOT NULL,
@@ -37,12 +27,6 @@ CREATE TABLE features (
   value VARCHAR(255) NULL,
   FOREIGN KEY (product_id) REFERENCES product (id)
 );
-
-COPY features(id, product_id, feature, value)
-FROM '/Users/salar/Documents/SDC_Files/features.csv'
-DELIMITER ','
-NULL AS 'null'
-CSV HEADER;
 
 CREATE TABLE styles (
   id SERIAL PRIMARY KEY,
@@ -54,12 +38,6 @@ CREATE TABLE styles (
   FOREIGN KEY (productId) REFERENCES product (id)
 );
 
-COPY styles(id, productId, name, sale_price, original_price, default_style)
-FROM '/Users/salar/Documents/SDC_Files/styles.csv'
-DELIMITER ','
-NULL AS 'null'
-CSV HEADER;
-
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   styleId INT NOT NULL,
@@ -68,11 +46,6 @@ CREATE TABLE photos (
   FOREIGN KEY (styleId) REFERENCES styles (id)
 );
 
-COPY photos(id, styleId, url, thumbnail_url)
-FROM '/Users/salar/Documents/SDC_Files/photos.csv'
-DELIMITER ','
-CSV HEADER;
-
 CREATE TABLE skus (
   id SERIAL PRIMARY KEY,
   styleId INT NOT NULL,
@@ -80,8 +53,3 @@ CREATE TABLE skus (
   quantity INT NOT NULL DEFAULT 0,
   FOREIGN KEY (styleId) REFERENCES styles (id)
 );
-
-COPY skus(id, styleId, size, quantity)
-FROM '/Users/salar/Documents/SDC_Files/skus.csv'
-DELIMITER ','
-CSV HEADER;
