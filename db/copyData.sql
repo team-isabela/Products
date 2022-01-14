@@ -1,4 +1,4 @@
-COPY product(product_id, name, slogan, description, category, default_price)
+COPY product(id, name, slogan, description, category, default_price)
 FROM '/Users/salar/Documents/SDC_Files/product.csv'
 DELIMITER ','
 CSV HEADER;
