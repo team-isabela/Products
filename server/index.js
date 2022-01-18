@@ -1,12 +1,10 @@
 const express = require('express');
-const { pool1 } = require('../db/connection.js');
-
-// const cors = require('cors')
-
+const pool = require('../db/connection.js');
 const app = express();
+const token = require('../config');
 
+app.use(express.static('public'));
 app.use(express.json());
-// app.use(cors())
 
 app.get('/products', (req, res) => {
   let page = req.query.page || 1;
@@ -16,7 +14,7 @@ app.get('/products', (req, res) => {
       res.json(result.rows);
     })
     .catch(err => {
-      console.log(err);
+      console.log(err, 'error in products get request');
       res.send(err.message);
     });
 });
@@ -27,10 +25,10 @@ app.get('/products/:product_id', (req, res) => {
   pool.query(queryString)
     .then(result => {
       res.header('Content-Type', 'application/json');
-      res.send(JSON.stringify(result.rows[0], null, 2));
+      res.send(JSON.stringify(result.rows[0]));
     })
     .catch(err => {
-      console.log(err);
+      console.log(err, 'error in products product ID get request');
       res.send(err.message);
     });
 });
@@ -52,10 +50,10 @@ app.get('/products/:product_id/styles', (req, res) => {
     .then(data => {
       result.results = data.rows;
       res.header('Content-Type', 'application/json');
-      res.send(JSON.stringify(result, null, 2));
+      res.send((result));
     })
     .catch(err => {
-      console.log(err);
+      console.log(err, 'error in products style get request');
       res.send(err.message);
     });
 });
@@ -69,7 +67,7 @@ app.get('/products/:product_id/related', (req, res) => {
       res.send(data.rows[0]['array']);
     })
     .catch(err => {
-      console.log(err);
+      console.log(err, 'error in related products get request' );
       res.send(err.message);
     });
 });
