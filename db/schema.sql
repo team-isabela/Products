@@ -8,11 +8,11 @@ CREATE DATABASE products;
 
 CREATE TABLE product (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(500) NOT NULL,
+  name VARCHAR(32) NOT NULL,
   slogan TEXT NULL,
   description TEXT NULL,
-  category VARCHAR(255) NOT NULL,
-  default_price VARCHAR(255) NOT NULL
+  category VARCHAR(64) NOT NULL,
+  default_price TEXT NOT NULL
 );
 
 \copy product FROM '/home/salarmalik/SDC_Files/product.csv' WITH (FORMAT csv, HEADER TRUE);
@@ -29,8 +29,8 @@ CREATE TABLE related (
 CREATE TABLE features (
   id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
-  feature VARCHAR(100) NOT NULL,
-  value VARCHAR(255) NULL,
+  feature VARCHAR(32) NOT NULL,
+  value VARCHAR(64) NULL,
   FOREIGN KEY (product_id) REFERENCES product (id)
 );
 
@@ -39,9 +39,9 @@ CREATE TABLE features (
 CREATE TABLE styles (
   id SERIAL PRIMARY KEY,
   productId INT NOT NULL,
-  name VARCHAR(500) NOT NULL,
-  sale_price VARCHAR(255) NULL,
-  original_price VARCHAR(255) NOT NULL,
+  name VARCHAR(32) NOT NULL,
+  sale_price VARCHAR(32) NULL,
+  original_price VARCHAR(32) NOT NULL,
   default_style SMALLINT,
   FOREIGN KEY (productId) REFERENCES product (id)
 );
@@ -65,7 +65,7 @@ CREATE TABLE photos (
 CREATE TABLE skus (
   id SERIAL PRIMARY KEY,
   styleId INT NOT NULL,
-  size VARCHAR(50) NOT NULL,
+  size VARCHAR(12) NOT NULL,
   quantity INT NOT NULL DEFAULT 0,
   FOREIGN KEY (styleId) REFERENCES styles (id)
 );

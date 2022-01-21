@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 const token = require('../config');
 
 const pool = new Pool({
-  host: 'localhost',
+  host: '54.227.69.74',
   port: 5432,
   user: 'salarmalik',
   password: 'password',
