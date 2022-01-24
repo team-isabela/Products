@@ -6,10 +6,10 @@ export const requests = new Counter('http_reqs');
 
 export const options = {
   vus: 1000,
-  duration: '15s',
+  duration: '30s',
 }
 
-const url = 'http://localhost:4500/products';
+const url = 'http://3.85.227.74:4500/products/';
 
 export default function() {
   const res = http.get(url);

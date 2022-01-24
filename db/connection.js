@@ -7,9 +7,6 @@ const pool = new Pool({
   user: 'salarmalik',
   password: 'password',
   database: 'products',
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000
 });
 
 pool.connect(err => {

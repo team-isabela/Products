@@ -6,6 +6,18 @@ const token = require('../config');
 app.use(express.static('public'));
 app.use(express.json());
 
+app.get('/loaderio-a3c914ef3b5e55f658f1362365a47d76', (req, res) => {
+  res.send('loaderio-a3c914ef3b5e55f658f1362365a47d76');
+});
+
+// app.get('/loaderio-a3c914ef3b5e55f658f1362365a47d76', err, (req, res) => {
+//   if (err) {
+//     console.log(err, 'error here help');
+//   } else {
+//     res.send('loaderio-a3c914ef3b5e55f658f1362365a47d76');
+//   }
+// });
+
 app.get('/products', (req, res) => {
   let page = req.query.page || 1;
   let count = req.query.count || 5;
